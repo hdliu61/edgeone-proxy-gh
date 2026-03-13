@@ -256,7 +256,7 @@ export async function onRequest({ request }: { request: EORequest }) {
     //       'X-Robots-Tag': 'noindex, nofollow, nosnippet, noarchive',
     //     }
     //   });
-    }
+    //  }
     
     return createHomePage();
   }
