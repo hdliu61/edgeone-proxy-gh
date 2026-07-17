@@ -37,15 +37,6 @@ export async function onRequestOptions() {
 
 // 解析并验证 GitHub URL
 function parseGitHubUrl(urlStr: string): { hostname: string; path: string; isValid: boolean } {
-  // 支持的 GitHub 域名
-  const supportedDomains = [
-    'github.com',
-    'raw.githubusercontent.com',
-    'gist.github.com',
-    'gist.githubusercontent.com',
-    'codeload.github.com',
-    'objects.githubusercontent.com'
-  ];
 
   try {
     // 处理两种 URL 格式：
@@ -77,11 +68,6 @@ function parseGitHubUrl(urlStr: string): { hostname: string; path: string; isVal
     const parsedUrl = new URL(targetUrl);
     const hostname = parsedUrl.hostname;
     
-    // 验证是否为支持的 GitHub 域名
-    if (!supportedDomains.includes(hostname)) {
-      return { hostname: '', path: '', isValid: false };
-    }
-
     return {
       hostname,
       path: parsedUrl.pathname + parsedUrl.search,
